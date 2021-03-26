@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # NRB SECURITY
@@ -78,7 +79,7 @@ class Pencere(QtWidgets.QWidget):
                 for i in soup.find_all("div", {"class": "search-text"}):
                     bilgi_sik_2 = str(i.text)
                     sik2_liste = bilgi_sik_2.split((" "))
-            for a3 in sik3:
+            for a3 in sik_3:
                 url = "https://teachmeanatomy.info/?s={}".format(a3)
                 responce = requests.get(url)
                 html_icerigi = responce.content
@@ -86,7 +87,7 @@ class Pencere(QtWidgets.QWidget):
                 for i in soup.find_all("div", {"class": "search-text"}):
                     bilgi_sik_3 = str(i.text)
                     sik3_liste = bilgi_sik_3.split((" "))
-            for a4 in sik4:
+            for a4 in sik_4:
                 url = "https://teachmeanatomy.info/?s={}".format(a4)
                 responce = requests.get(url)
                 html_icerigi = responce.content
@@ -94,7 +95,7 @@ class Pencere(QtWidgets.QWidget):
                 for i in soup.find_all("div", {"class": "search-text"}):
                     bilgi_sik_4 = str(i.text)
                     sik4_liste = bilgi_sik_4.split((" "))
-            for a5 in sik5:
+            for a5 in sik_5:
                 url = "https://teachmeanatomy.info/?s={}".format(a5)
                 responce = requests.get(url)
                 html_icerigi = responce.content
@@ -124,7 +125,7 @@ class Pencere(QtWidgets.QWidget):
         for z5 in soru_liste:
             if z5 in sik5_liste:
                 cevap5.append(z5)
-        end = [len(cevap1),len(cevap2),len(cevap3),len(cevap4),len(cevap5)]
+        end = [len(cevap1), len(cevap2), len(cevap3), len(cevap4), len(cevap5)]
         end.sort()
         try:
             if end[4] == len(cevap1):
@@ -139,7 +140,6 @@ class Pencere(QtWidgets.QWidget):
                 pyautogui.alert(text='Cevap E :)', title='NRB SECURİTY', button="Tamam")
         except:
             pyautogui.alert(text='Cevabı bulamadım :(', title='NRB SECURİTY', button="Tamam")
-
 app = QtWidgets.QApplication(sys.argv)
 pencere = Pencere()
 sys.exit(app.exec_())
